@@ -1,10 +1,12 @@
 import { promises as fsPromises } from 'fs';
 import { EmojiAdminListRes } from './typings/slack';
+import { Formatter, FormatterTypes, getFormatter } from './formatter';
 
-// node dist/bundle.js ${json_file_name} ${user_display_name}
+// node dist/bundle.js ${json_file_name} ${user_display_name} ${formatter_type}
 export async function main() {
   const fileName = process.argv[2];
   const userDisplayName = process.argv[3];
+  const format: FormatterTypes = (process.argv[4] as any) || 'json';
 
   const fp = await fsPromises.open(fileName, 'r');
   const json = await fp.readFile({ encoding: 'utf-8' });
@@ -17,13 +19,13 @@ export async function main() {
     if (emojiItem.user_display_name === userDisplayName) {
       emojiList.push({
         name: emojiItem.name,
-        imageURL: emojiItem.url,
+        url: emojiItem.url,
       });
     }
   }
 
-  console.log(emojiList);
-  console.log(`Count: ${emojiList.length}`);
+  const formatter: Formatter = getFormatter(format);
+  console.log(formatter(emojiList));
 }
 
 main()

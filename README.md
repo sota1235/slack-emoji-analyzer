@@ -1,9 +1,5 @@
-ts-simple-boilerplate [![CircleCI](https://circleci.com/gh/sota1235/ts-simple-boilerplate.svg?style=svg)](https://circleci.com/gh/sota1235/ts-simple-boilerplate) ![](https://github.com/sota1235/ts-simple-boilerplate/workflows/.github/workflows/main.yml/badge.svg) [![codecov](https://codecov.io/gh/sota1235/ts-simple-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/sota1235/ts-simple-boilerplate)
+slack-emoji-analyzer
 ====
-
-Minimum boilerplate for me.
-
-Just for bundling 1 JavaScript file.
 
 ### Requirement
 
@@ -11,7 +7,17 @@ Just for bundling 1 JavaScript file.
 
 ### Usage
 
-See `scripts` in `package.json`.
+```
+npm run build
+node dist/bundle.js ${file_name} ${user_display_name} ${format}
+```
+
+- `file_name`
+  - Response from Slack admin emoji list API(**Note: non official API**).
+- `user_display_name`
+  - Display name of Slack
+- `format`
+  - `json`, `md`
 
 ### Install
 
@@ -20,17 +26,6 @@ git clone git@github.com:sota1235/ts-simple-boilerplate.git your_app_name
 cd your_app_name
 npm i
 ```
-
-### Optional
-
-- GitHub Actions
-- CircleCI
-    - Only thing you need to do is to replace status badge on `README.md`.
-- Codecov
-    - Only things you need to do is
-        - 1. Set token of [Codecov](https://codecov.io/) as an environment value `CODECOV_TOKEN` on your CircleCI or GitHub project.
-        - 2. Replace status badge on `README.md`.
-
 ### Licence
 
 This software is released under the MIT License, see LICENSE.txt.
