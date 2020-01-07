@@ -1,6 +1,6 @@
 export interface EmojiAdminListRes {
   ok: boolean;
-  emoji: [];
+  emoji: Emoji[];
   disabled_emoji: any;
   custom_emoji_total_count: Emoji[];
   paging: {
