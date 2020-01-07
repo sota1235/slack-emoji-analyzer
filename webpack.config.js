@@ -2,6 +2,8 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.ts',
+  target: 'node',
+  mode: process.env.NODE_ENV || 'none',
   module: {
     rules: [
       {
