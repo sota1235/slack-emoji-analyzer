@@ -32,11 +32,10 @@
     "build": "webpack",
     "watch": "webpack --progress --colors --watch",
     "fix": "npm run prettier:fix && npm run eslint:fix",
-    "lint": "npm run prettier && npm run eslint",
+    "lint": "npm run eslint",
     "eslint": "eslint 'src/**/*.ts'",
     "eslint:fix": "npm run eslint --fix",
-    "prettier": "prettier './src/**/*.ts'",
-    "prettier:fix": "npm run prettier -- --write",
+    "prettier": "prettier './src/**/*.ts' --write",
     "test": "jest",
     "test:ci": "jest -c ./jest.config.ci.js"
   },
