@@ -31,7 +31,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --progress --colors --watch",
-    "fix": "npm run prettier:fix && npm run eslint:fix",
+    "fix": "npm run prettier && npm run eslint:fix",
     "lint": "npm run eslint",
     "eslint": "eslint 'src/**/*.ts'",
     "eslint:fix": "npm run eslint --fix",
