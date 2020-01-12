@@ -28,8 +28,6 @@ export async function main() {
   console.log(formatter(emojiList));
 }
 
-main()
-  .then(() => {})
-  .catch(err => {
-    console.error(err);
-  });
+main().catch(err => {
+  console.error(err);
+});
