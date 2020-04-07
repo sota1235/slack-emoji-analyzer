@@ -10,7 +10,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "typescript": "^3.1.6"
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@types/jest": "25.1.4",
