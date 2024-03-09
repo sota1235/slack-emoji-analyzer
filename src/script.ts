@@ -6,12 +6,12 @@ import { Formatter, FormatterTypes, getFormatter } from './formatter';
 export async function main() {
   const fileName = process.argv[2];
   const userDisplayName = process.argv[3];
-  const format: FormatterTypes = (process.argv[4] as any) || 'json';
+  const format: FormatterTypes = (process.argv[4] as FormatterTypes) || 'json';
 
   const fp = await fsPromises.open(fileName, 'r');
   const json = await fp.readFile({ encoding: 'utf-8' });
 
-  const res: EmojiAdminListRes = JSON.parse(json);
+  const res: EmojiAdminListRes = JSON.parse(json) as EmojiAdminListRes;
   const { emoji } = res;
   const emojiList = [];
 
@@ -28,6 +28,6 @@ export async function main() {
   console.log(formatter(emojiList));
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error(err);
 });

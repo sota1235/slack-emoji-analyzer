@@ -3,17 +3,15 @@ export interface SimpleEmoji {
   url: string;
 }
 
-export interface Formatter {
-  (emojiList: SimpleEmoji[]): string;
-}
+export type Formatter = (emojiList: SimpleEmoji[]) => string;
 
 export type FormatterTypes = 'json' | 'md';
 
-export const JSONFormatter: Formatter = emojiList => {
+export const JSONFormatter: Formatter = (emojiList) => {
   return JSON.stringify(emojiList);
 };
 
-export const MarkdownFormatter: Formatter = emojiList => {
+export const MarkdownFormatter: Formatter = (emojiList) => {
   let res = '';
 
   for (const emoji of emojiList) {
