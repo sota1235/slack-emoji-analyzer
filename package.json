@@ -1,14 +1,5 @@
 {
-  "name": "ts-simple-boilderplate",
-  "version": "0.0.1",
-  "description": "Simple boilerplate for @sota1235",
-  "main": "index.js",
-  "engines": {
-    "node": ">=v12.10.0"
-  },
-  "directories": {
-    "lib": "lib"
-  },
+  "private": true,
   "dependencies": {
     "typescript": "^3.8.3"
   },
@@ -39,9 +30,6 @@
     "test": "jest",
     "test:ci": "jest -c ./jest.config.ci.js"
   },
-  "keywords": [],
-  "author": "@sota1235",
-  "license": "MIT",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
