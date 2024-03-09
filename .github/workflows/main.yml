@@ -1,29 +1,28 @@
-name: Main
+name: Checking code quality
 
-on: [push]
+on:
+  push:
 
 jobs:
-  build:
-
+  check-code-quality:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
+    timeout-minutes: 15
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v1
-      - name: Run tests with ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - name: Setting up node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: .node-version
+          cache: 'npm'
+          cache-dependency-path: ./package-lock.json
       - name: npm install
-        run: npm i
+        run: npm ci --no-fund --no-audit
       - name: lint
         run: npm run lint
       - name: test
         run: |
           npm run test:ci
-          npx codecov@3.0.2
       - name: build
         run: npm run build
